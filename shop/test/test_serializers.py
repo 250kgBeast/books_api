@@ -15,13 +15,15 @@ class BooksSerializerTestCase(TestCase):
                 'id':  book_1.id,
                 'name': 'Book1',
                 'author_name': 'Author1',
-                'price': '100.00'
+                'price': '100.00',
+                'owner': None
             },
             {
                 'id': book_2.id,
                 'name': 'Book2',
                 'author_name': 'Author2',
-                'price': '200.00'
+                'price': '200.00',
+                'owner': None
             },
         ]
         self.assertEqual(expected_data, data)
