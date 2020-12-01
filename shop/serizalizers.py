@@ -1,15 +1,17 @@
-from rest_framework.serializers import ModelSerializer
+from rest_framework import serializers
 
 from shop.models import Book, UserBookRelation
 
 
-class BookSerializer(ModelSerializer):
+class BookSerializer(serializers.ModelSerializer):
+    likes_count = serializers.IntegerField(read_only=True)
+
     class Meta:
         model = Book
-        fields = '__all__'
+        fields = ('id', 'name', 'author_name', 'price', 'likes_count')
 
 
-class UserBookRelationSerializer(ModelSerializer):
+class UserBookRelationSerializer(serializers.ModelSerializer):
     class Meta:
         model = UserBookRelation
         fields = ('book', 'like', 'in_bookmarks', 'rate')
